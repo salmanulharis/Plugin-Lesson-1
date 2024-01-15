@@ -37,12 +37,6 @@ class WepoAddon {
 
 	}
 
-	function uninstall(){
-		//delete CPT
-		//delete all the plugin data from the db
-
-	}
-
 	function custom_post_type(){
 		register_post_type('book', ['public' => true, 'label' => 'Books']);
 	}
@@ -58,3 +52,5 @@ register_activation_hook(__FILE__, array($wepoAddon, 'activate'));
 
 //deactivation
 register_deactivation_hook(__FILE__, array($wepoAddon, 'deactivate'));
+
+
