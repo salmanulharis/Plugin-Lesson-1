@@ -23,6 +23,10 @@ class WepoAddon {
 		add_action('init', array($this, 'custom_post_type'));
 	}
 
+	function register(){
+		add_action('admin_enqueue_scripts', array($this, 'enqueue'));
+	}
+
 	function activate(){
 		//generated a Custom Post Type
 		$this->custom_post_type();
@@ -41,10 +45,16 @@ class WepoAddon {
 		register_post_type('book', ['public' => true, 'label' => 'Books']);
 	}
 
+	function enqueue(){
+		wp_enqueue_style('mypluginstyle', plugins_url('assets/mystyle.css', __FILE__));
+		wp_enqueue_script('mypluginscript', plugins_url('assets/myscript.js', __FILE__));
+	}
+
 }
 
 if(class_exists('WepoAddon')){
 	$wepoAddon = new WepoAddon();
+	$wepoAddon->register();
 }
 
 //activation
