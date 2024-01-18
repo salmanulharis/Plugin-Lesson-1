@@ -23,8 +23,9 @@ class WepoAddon {
 		add_action('init', array($this, 'custom_post_type'));
 	}
 
-	function register(){
-		add_action('admin_enqueue_scripts', array($this, 'enqueue'));
+	public static function register(){
+		// add_action('admin_enqueue_scripts', array($this, 'enqueue'));
+		echo 'this is a test teso of tesing the test';
 	}
 
 	function activate(){
@@ -53,8 +54,9 @@ class WepoAddon {
 }
 
 if(class_exists('WepoAddon')){
-	$wepoAddon = new WepoAddon();
-	$wepoAddon->register();
+	// $wepoAddon = new WepoAddon();
+	// $wepoAddon->register();
+	WepoAddon::register();
 }
 
 //activation
