@@ -36,6 +36,7 @@ if( !class_exists('WepoAddon') ){
 
 		public function admin_index(){
 			// require template
+			require_once plugin_dir_path(__FILE__) . 'templates/admin.php';
 		}
 
 		function custom_post_type(){
