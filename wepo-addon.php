@@ -27,6 +27,15 @@ if( !class_exists('WepoAddon') ){
 
 		function register(){
 			add_action('admin_enqueue_scripts', array($this, 'enqueue'));
+			add_action('admin_menu', array($this, 'add_admin_pages'));
+		}
+
+		public function add_admin_pages(){
+			add_menu_page('WepoAddon Plugin', 'Wepo Addon', 'manage_options', 'wepoaddon_plugin', array($this, 'admin_index'), 'dashicons-store', 110);
+		}
+
+		public function admin_index(){
+			// require template
 		}
 
 		function custom_post_type(){
